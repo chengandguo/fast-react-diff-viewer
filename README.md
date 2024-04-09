@@ -1,8 +1,18 @@
-
 <p align="center">
   <img src='https://i.ibb.co/DKrGhVQ/Frame-1-1.png' width="100%" alt='React Diff Viewer' />
 </p>
 <br/>
+
+Notion: forked from react-diff-viewer, but with very fast diff speed.
+What are the changes?
+1.upgrade diff package the 5.2.0, this may 3 times higher than the old one
+
+# Todo: Here are the other optimization
+
+1.replace diff with fast-myers-diff package.
+it is 30 times speed than diff package
+
+2.Use paging to render the result.
 
 [![Build Status](https://travis-ci.com/praneshr/react-diff-viewer.svg?branch=master)](https://travis-ci.com/praneshr/react-diff-viewer)
 [![npm version](https://badge.fury.io/js/react-diff-viewer.svg)](https://badge.fury.io/js/react-diff-viewer)
@@ -27,8 +37,8 @@ npm i react-diff-viewer
 ## Usage
 
 ```javascript
-import React, { PureComponent } from 'react';
-import ReactDiffViewer from 'react-diff-viewer';
+import React, { PureComponent } from "react";
+import ReactDiffViewer from "react-diff-viewer";
 
 const oldCode = `
 const a = 10
@@ -102,8 +112,8 @@ An example using [Prism JS](https://prismjs.com)
 ```
 
 ```javascript
-import React, { PureComponent } from 'react';
-import ReactDiffViewer from 'react-diff-viewer';
+import React, { PureComponent } from "react";
+import ReactDiffViewer from "react-diff-viewer";
 
 const oldCode = `
 const a = 10
@@ -126,9 +136,9 @@ if(a === 10) {
 `;
 
 class Diff extends PureComponent {
-  highlightSyntax = str => (
+  highlightSyntax = (str) => (
     <pre
-      style={{ display: 'inline' }}
+      style={{ display: "inline" }}
       dangerouslySetInnerHTML={{
         __html: Prism.highlight(str, Prism.languages.javascript),
       }}
@@ -165,8 +175,8 @@ enum DiffMethod {
 ```
 
 ```javascript
-import React, { PureComponent } from 'react';
-import ReactDiffViewer, { DiffMethod } from 'react-diff-viewer';
+import React, { PureComponent } from "react";
+import ReactDiffViewer, { DiffMethod } from "react-diff-viewer";
 
 const oldCode = `
 {
@@ -289,8 +299,8 @@ To override any style, just pass the new style object to the `styles` prop. New 
 For keys other than `variables`, the value can either be an object or string interpolation.
 
 ```javascript
-import React, { PureComponent } from 'react';
-import ReactDiffViewer from 'react-diff-viewer';
+import React, { PureComponent } from "react";
+import ReactDiffViewer from "react-diff-viewer";
 
 const oldCode = `
 const a = 10
@@ -313,9 +323,9 @@ if(a === 10) {
 `;
 
 class Diff extends PureComponent {
-  highlightSyntax = str => (
+  highlightSyntax = (str) => (
     <span
-      style={{ display: 'inline' }}
+      style={{ display: "inline" }}
       dangerouslySetInnerHTML={{
         __html: Prism.highlight(str, Prism.languages.javascript),
       }}
@@ -326,14 +336,14 @@ class Diff extends PureComponent {
     const newStyles = {
       variables: {
         dark: {
-          highlightBackground: '#fefed5',
-          highlightGutterBackground: '#ffcd3c',
+          highlightBackground: "#fefed5",
+          highlightGutterBackground: "#ffcd3c",
         },
       },
       line: {
-        padding: '10px 2px',
-        '&:hover': {
-          background: '#a26ea1',
+        padding: "10px 2px",
+        "&:hover": {
+          background: "#a26ea1",
         },
       },
     };
